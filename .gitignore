@@ -1,3 +1,9 @@
+# IDE Files
+.idea
+
+# cached static assets
+staticfiles/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
