@@ -10,21 +10,40 @@
 {% if next %}
     {% if user.is_authenticated %}
         <p>You dont have permission for this page</p>
-
     {% else %}
         <p>Please login to see this page</p>
     {% endif %}
 {% endif %}
 
-<form method='post' action="{% url 'login' %}">
-{% csrf_token %}
-{{form.username.label_tag}}
-{{form.username}}
-<br/>
-{{form.password.label_tag}}
-{{form.password}}<br/>
-<input type="submit" value='login'>
-<input type="hidden" name='next' value="{{next}}">
-
-</form>
+  <div class="container">
+    <div class="row d-flex justify-content-center align-content-center mt-4">
+      <div class="col-md-6">
+        <!-- Form Start -->
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="card">
+            <div class="card-title my-3 h3 text-center">Login</div>
+            <div class="card-body">
+              <div class="row col">
+                <div class="form-floating mb-3">
+                  <input id="id_{{ form.username.name }}" name="{{ form.username.name }}" type="text" class="form-control">
+                  <label for="{{ form.username.id_for_label }}" class="form-label ms-2">Username</label>
+                </div>
+              </div>
+              <div class="row col">
+                <div class="form-floating mb-3">
+                  <input id="id_{{ form.password.name }}" name="{{ form.password.name }}" type="password" class="form-control">
+                  <label for="{{ form.password.id_for_label }}" class="form-label ms-2">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Form End -->
+      </div>
+    </div>
+  </div>
 {% endblock %}
