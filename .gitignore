@@ -1,5 +1,7 @@
 # IDE Files
 .idea
+.envrc
+.kubeconfig
 
 # cached static assets
 staticfiles/
